@@ -1,0 +1,24 @@
+meteor-base             # Packages every Meteor app needs to have
+mobile-experience       # Packages for a great mobile UX
+mongo                   # The database Meteor supports right now
+reactive-var            # Reactive variable for tracker
+reactive-dict           # Reactive dictionary
+tracker                 # Meteor's client-side reactive programming library
+standard-minifier-css   # CSS minifier run for production mode
+standard-minifier-js    # JS minifier run for production mode
+es5-shim                # ECMAScript 5 compatibility for older browsers
+ecmascript              # Enable ECMAScript2015+ syntax in app code
+shell-server            # Server-side component of the `meteor shell` command
+jquery                  # required by blaze 2
+blaze-html-templates    # Blaze templates
+less                    # LESS css preprocessor
+accounts-password       # Password accounts
+check                   # Check argument types
+mdg:validated-method    # Methods with argument checking
+mdg:validation-error    # Validation error type
+ostrio:flow-router-extra  # Router
+universe:i18n           # i18n
+promise                 # Promise polyfill
+meteortesting:mocha     # Mocha test driver
+aldeed:collection2
+aldeed:simple-schema

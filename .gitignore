@@ -1,0 +1,9 @@
+node_modules/
+.meteor/.finished-updaters
+.meteor/.id
+.meteor/local
+
+settings*.json
+
+#operator kit and review skill, never pushed
+.pi/

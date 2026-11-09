@@ -1,0 +1,31 @@
+{
+	"name": "stokpad",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Minimal warehouse management app",
+	"scripts": {
+		"start": "meteor run --exclude-archs=web.cordova,web.browser.legacy",
+		"dev": "meteor run --exclude-archs=web.cordova,web.browser.legacy",
+		"lint": "eslint .",
+		"test": "TEST_CLIENT=0 meteor test --once --driver-package=meteortesting:mocha --exclude-archs=web.cordova,web.browser.legacy",
+		"seed": "SEED=true meteor run --exclude-archs=web.cordova,web.browser.legacy"
+	},
+	"dependencies": {
+		"@babel/runtime": "^7.23.5",
+		"@faker-js/faker": "^8.4.1",
+		"jquery": "^4.0.0",
+		"meteor-node-stubs": "^1.2.30",
+		"simpl-schema": "^3.4.6"
+	},
+	"devDependencies": {
+		"chai": "^4.5.0",
+		"chai-as-promised": "^7.1.2",
+		"eslint": "^8.57.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-import-resolver-meteor": "^0.4.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-jsdoc": "^48.11.0",
+		"eslint-plugin-meteor": "^7.3.0",
+		"eslint-plugin-promise": "^6.1.1"
+	}
+}
