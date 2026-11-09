@@ -1,0 +1,77 @@
+{
+	"app": {
+		"name": "stokpad",
+		"nav": {
+			"products": "Artikel",
+			"warehouses": "Lager",
+			"stock": "Bestand"
+		},
+		"login": "Anmelden",
+		"logout": "Abmelden",
+		"email": "E-Mail",
+		"password": "Passwort",
+		"save": "Speichern",
+		"cancel": "Abbrechen",
+		"delete-confirm": "Sind Sie sicher?"
+	},
+	"errors": {
+		"not-logged-in": "Bitte melden Sie sich zuerst an",
+		"no-permission": "Sie haben keine Berechtigung für diese Aktion",
+		"not-found": "Das angeforderte Element wurde nicht gefunden",
+		"code-taken": "Dieser Code wird bereits verwendet",
+		"zero-delta": "Die Korrektur darf nicht null sein",
+		"negative-stock": "Die Korrektur würde zu negativem Bestand führen"
+	},
+	"unit": {
+		"pcs": "Stück",
+		"kg": "Kilogramm",
+		"l": "Liter"
+	},
+	"products": {
+		"singular": "Artikel",
+		"plural": "Artikel",
+		"add": "Artikel hinzufügen",
+		"edit": "Bearbeiten",
+		"delete": "Löschen",
+		"search": "Artikel suchen",
+		"code": "Code",
+		"name": "Name",
+		"unit": "Einheit",
+		"total-stock": "Bestand"
+	},
+	"warehouses": {
+		"singular": "Lager",
+		"plural": "Lager",
+		"add": "Lager hinzufügen",
+		"edit": "Bearbeiten",
+		"delete": "Löschen",
+		"name": "Name",
+		"locations": "Lagerorte"
+	},
+	"locations": {
+		"singular": "Lagerort",
+		"plural": "Lagerorte",
+		"add": "Lagerort hinzufügen",
+		"edit": "Bearbeiten",
+		"delete": "Löschen",
+		"code": "Code",
+		"name": "Name"
+	},
+	"stock": {
+		"pick-warehouse": "Lager auswählen",
+		"product": "Artikel",
+		"location": "Lagerort",
+		"quantity": "Menge",
+		"empty": "Noch kein Bestand",
+		"adjust": "Korrigieren",
+		"delta": "Differenz",
+		"reason": "Grund",
+		"reason-correction": "Korrektur",
+		"reason-damage": "Beschädigung",
+		"reason-recount": "Inventur",
+		"reason-other": "Sonstiges",
+		"reason-none": "Ohne Grund",
+		"select-product-location": "Bitte zuerst Artikel und Lagerort wählen",
+		"adjusted": "Korrigiert von {$before} auf {$after}"
+	}
+}

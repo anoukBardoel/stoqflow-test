@@ -1,0 +1,14 @@
+<template name="app_layout">
+	<nav class="app-nav">
+		<span class="app-nav-logo">{{ i18n 'app.name' }}</span>
+		<a href="{{ pathFor route='products.index' }}">{{ i18n 'app.nav.products' }}</a>
+		<a href="{{ pathFor route='warehouses.index' }}">{{ i18n 'app.nav.warehouses' }}</a>
+		<a href="{{ pathFor route='stock.index' }}">{{ i18n 'app.nav.stock' }}</a>
+		<span class="app-nav-user">{{ userName }}</span>
+		<button class="app-nav-logout">{{ i18n 'app.logout' }}</button>
+	</nav>
+	<main class="app-main">
+		{{> Template.dynamic template=main}}
+	</main>
+</template>
+

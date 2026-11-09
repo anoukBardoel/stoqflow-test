@@ -1,0 +1,47 @@
+<template name="warehouses_single">
+	<h1>{{ warehouse.name }}</h1>
+	<div class="toolbar">
+		{{#if canCreate}}
+			<button class="locations-add">{{ i18n 'locations.add' }}</button>
+		{{/if}}
+	</div>
+	<table class="locations-table">
+		<thead>
+			<tr>
+				<th>{{ i18n 'locations.code' }}</th>
+				<th>{{ i18n 'locations.name' }}</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each locations}}
+				<tr>
+					<td>{{ code }}</td>
+					<td>{{ name }}</td>
+					<td>
+						<button class="locations-edit" data-id="{{ _id }}">{{ i18n 'locations.edit' }}</button>
+						<button class="locations-delete" data-id="{{ _id }}">{{ i18n 'locations.delete' }}</button>
+					</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+	{{#if editing}}
+		<form class="modal locations-modal">
+			<h2>{{#if locationId}}{{ i18n 'locations.edit' }}{{else}}{{ i18n 'locations.add' }}{{/if}}</h2>
+			<label>{{ i18n 'locations.code' }}
+				<input type="text" name="code" value="{{ location.code }}">
+			</label>
+			<label>{{ i18n 'locations.name' }}
+				<input type="text" name="name" value="{{ location.name }}">
+			</label>
+			<div class="modal-actions">
+				<button type="button" class="modal-cancel">{{ i18n 'app.cancel' }}</button>
+				<button type="submit">{{ i18n 'app.save' }}</button>
+			</div>
+			{{#if error}}
+				<p class="error">{{ error }}</p>
+			{{/if}}
+		</form>
+	{{/if}}
+</template>

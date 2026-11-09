@@ -1,0 +1,77 @@
+{
+	"app": {
+		"name": "stokpad",
+		"nav": {
+			"products": "Products",
+			"warehouses": "Warehouses",
+			"stock": "Stock"
+		},
+		"login": "Log in",
+		"logout": "Log out",
+		"email": "E-mail",
+		"password": "Password",
+		"save": "Save",
+		"cancel": "Cancel",
+		"delete-confirm": "Are you sure?"
+	},
+	"errors": {
+		"not-logged-in": "You need to log in first",
+		"no-permission": "You don't have permission to do this",
+		"not-found": "The requested item was not found",
+		"code-taken": "This code is already in use",
+		"zero-delta": "The adjustment can not be zero",
+		"negative-stock": "The adjustment would result in negative stock"
+	},
+	"unit": {
+		"pcs": "pieces",
+		"kg": "kilograms",
+		"l": "liters"
+	},
+	"products": {
+		"singular": "product",
+		"plural": "products",
+		"add": "Add product",
+		"edit": "Edit",
+		"delete": "Delete",
+		"search": "Search products",
+		"code": "Code",
+		"name": "Name",
+		"unit": "Unit",
+		"total-stock": "Stock"
+	},
+	"warehouses": {
+		"singular": "warehouse",
+		"plural": "warehouses",
+		"add": "Add warehouse",
+		"edit": "Edit",
+		"delete": "Delete",
+		"name": "Name",
+		"locations": "Locations"
+	},
+	"locations": {
+		"singular": "location",
+		"plural": "locations",
+		"add": "Add location",
+		"edit": "Edit",
+		"delete": "Delete",
+		"code": "Code",
+		"name": "Name"
+	},
+	"stock": {
+		"pick-warehouse": "Pick a warehouse",
+		"product": "Product",
+		"location": "Location",
+		"quantity": "Quantity",
+		"empty": "No stock yet",
+		"adjust": "Adjust",
+		"delta": "Delta",
+		"reason": "Reason",
+		"reason-correction": "Correction",
+		"reason-damage": "Damage",
+		"reason-recount": "Recount",
+		"reason-other": "Other",
+		"reason-none": "No reason",
+		"select-product-location": "Pick a product and a location first",
+		"adjusted": "Adjusted from {$before} to {$after}"
+	}
+}

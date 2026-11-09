@@ -1,0 +1,134 @@
+/*minimal app styles*/
+body {
+	font-family: sans-serif;
+	margin: 0;
+	color: #1c2430;
+	background: #f4f5f7;
+}
+
+.app-nav {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 8px 16px;
+	background: #1c2430;
+	color: #fff;
+
+	a {
+		color: #cfd6e0;
+		text-decoration: none;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
+.app-nav-logo {
+	font-weight: bold;
+	margin-right: 16px;
+}
+
+.app-nav-user {
+	margin-left: auto;
+}
+
+.app-main {
+	padding: 16px;
+}
+
+.toolbar {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 12px;
+
+	input,
+	select {
+		padding: 6px 8px;
+	}
+}
+
+.products-search {
+	width: 320px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	background: #fff;
+
+	th,
+	td {
+		padding: 6px 10px;
+		border-bottom: 1px solid #e3e6ea;
+		text-align: left;
+	}
+
+	th {
+		font-size: 12px;
+		text-transform: uppercase;
+		color: #6b7684;
+	}
+}
+
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 100;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: min(380px, calc(100vw - 32px));
+	padding: 16px;
+	background: #fff;
+	border: 1px solid #d7dbe0;
+	border-radius: 4px;
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+
+	//dim the page behind the dialog
+	&::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		background: rgba(15, 20, 30, 0.35);
+	}
+
+	label {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		font-size: 13px;
+	}
+}
+
+.modal-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+.error {
+	color: #b3261e;
+}
+
+.result {
+	color: #1a7f37;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	max-width: 280px;
+	margin: 80px auto;
+	padding: 16px;
+	background: #fff;
+	border: 1px solid #d7dbe0;
+	border-radius: 4px;
+}

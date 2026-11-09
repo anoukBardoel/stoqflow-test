@@ -1,0 +1,42 @@
+<template name="warehouses_index">
+	<h1>{{ i18n 'app.nav.warehouses' }}</h1>
+	<div class="toolbar">
+		{{#if canCreate}}
+			<button class="warehouses-add">{{ i18n 'warehouses.add' }}</button>
+		{{/if}}
+	</div>
+	<table class="warehouses-table">
+		<thead>
+			<tr>
+				<th>{{ i18n 'warehouses.name' }}</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each warehouses}}
+				<tr>
+					<td><a href="{{ pathFor route='warehouses.single' _id=_id }}">{{ name }}</a></td>
+					<td>
+						<button class="warehouses-edit" data-id="{{ _id }}">{{ i18n 'warehouses.edit' }}</button>
+						<button class="warehouses-delete" data-id="{{ _id }}">{{ i18n 'warehouses.delete' }}</button>
+					</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+	{{#if editing}}
+		<form class="modal warehouses-modal">
+			<h2>{{#if warehouseId}}{{ i18n 'warehouses.edit' }}{{else}}{{ i18n 'warehouses.add' }}{{/if}}</h2>
+			<label>{{ i18n 'warehouses.name' }}
+				<input type="text" name="name" value="{{ warehouse.name }}">
+			</label>
+			<div class="modal-actions">
+				<button type="button" class="modal-cancel">{{ i18n 'app.cancel' }}</button>
+				<button type="submit">{{ i18n 'app.save' }}</button>
+			</div>
+			{{#if error}}
+				<p class="error">{{ error }}</p>
+			{{/if}}
+		</form>
+	{{/if}}
+</template>
