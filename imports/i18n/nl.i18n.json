@@ -1,0 +1,78 @@
+{
+	"app": {
+		"name": "stokpad",
+		"nav": {
+			"products": "Artikelen",
+			"warehouses": "Magazijnen",
+			"stock": "Voorraad"
+		},
+		"login": "Inloggen",
+		"logout": "Uitloggen",
+		"email": "E-mail",
+		"password": "Wachtwoord",
+		"save": "Opslaan",
+		"cancel": "Annuleren",
+		"delete-confirm": "Weet u het zeker?",
+		"back": "Terug"
+	},
+	"errors": {
+		"not-logged-in": "U moet zich eerst aanmelden",
+		"no-permission": "U heeft geen toestemming om dit te doen",
+		"not-found": "Het gevraagde item is niet gevonden",
+		"code-taken": "Deze code is al in gebruik",
+		"zero-delta": "De correctie mag niet nul zijn",
+		"negative-stock": "De correctie zou tot een negatieve voorraad leiden"
+	},
+	"unit": {
+		"pcs": "stuks",
+		"kg": "kilogram",
+		"l": "liter"
+	},
+	"products": {
+		"singular": "artikel",
+		"plural": "artikelen",
+		"add": "Artikel toevoegen",
+		"edit": "Bewerken",
+		"delete": "Verwijderen",
+		"search": "Artikelen zoeken",
+		"code": "Code",
+		"name": "Naam",
+		"unit": "Eenheid",
+		"total-stock": "Voorraad"
+	},
+	"warehouses": {
+		"singular": "magazijn",
+		"plural": "magazijnen",
+		"add": "Magazijn toevoegen",
+		"edit": "Bewerken",
+		"delete": "Verwijderen",
+		"name": "Naam",
+		"locations": "Locaties"
+	},
+	"locations": {
+		"singular": "locatie",
+		"plural": "locaties",
+		"add": "Locatie toevoegen",
+		"edit": "Bewerken",
+		"delete": "Verwijderen",
+		"code": "Code",
+		"name": "Naam"
+	},
+	"stock": {
+		"pick-warehouse": "Kies een magazijn",
+		"product": "Artikel",
+		"location": "Locatie",
+		"quantity": "Hoeveelheid",
+		"empty": "Nog geen voorraad",
+		"adjust": "Corrigeren",
+		"delta": "Verschil",
+		"reason": "Reden",
+		"reason-correction": "Correctie",
+		"reason-damage": "Schade",
+		"reason-recount": "Hertelling",
+		"reason-other": "Overig",
+		"reason-none": "Zonder reden",
+		"select-product-location": "Kies eerst een artikel en een locatie",
+		"adjusted": "Gecorrigeerd van {$before} naar {$after}"
+	}
+}

@@ -1,0 +1,78 @@
+{
+	"app": {
+		"name": "stokpad",
+		"nav": {
+			"products": "Produits",
+			"warehouses": "Entrepôts",
+			"stock": "Stock"
+		},
+		"login": "Connexion",
+		"logout": "Déconnexion",
+		"email": "E-mail",
+		"password": "Mot de passe",
+		"save": "Enregistrer",
+		"cancel": "Annuler",
+		"delete-confirm": "Êtes-vous sûr ?",
+		"back": "Retour"
+	},
+	"errors": {
+		"not-logged-in": "Vous devez d'abord vous connecter",
+		"no-permission": "Vous n'avez pas la permission de faire ceci",
+		"not-found": "L'élément demandé n'a pas été trouvé",
+		"code-taken": "Ce code est déjà utilisé",
+		"zero-delta": "L'ajustement ne peut pas être zéro",
+		"negative-stock": "L'ajustement entraînerait un stock négatif"
+	},
+	"unit": {
+		"pcs": "pièces",
+		"kg": "kilogrammes",
+		"l": "litres"
+	},
+	"products": {
+		"singular": "produit",
+		"plural": "produits",
+		"add": "Ajouter un produit",
+		"edit": "Modifier",
+		"delete": "Supprimer",
+		"search": "Rechercher des produits",
+		"code": "Code",
+		"name": "Nom",
+		"unit": "Unité",
+		"total-stock": "Stock"
+	},
+	"warehouses": {
+		"singular": "entrepôt",
+		"plural": "entrepôts",
+		"add": "Ajouter un entrepôt",
+		"edit": "Modifier",
+		"delete": "Supprimer",
+		"name": "Nom",
+		"locations": "Emplacements"
+	},
+	"locations": {
+		"singular": "emplacement",
+		"plural": "emplacements",
+		"add": "Ajouter un emplacement",
+		"edit": "Modifier",
+		"delete": "Supprimer",
+		"code": "Code",
+		"name": "Nom"
+	},
+	"stock": {
+		"pick-warehouse": "Choisissez un entrepôt",
+		"product": "Produit",
+		"location": "Emplacement",
+		"quantity": "Quantité",
+		"empty": "Pas encore de stock",
+		"adjust": "Ajuster",
+		"delta": "Différence",
+		"reason": "Motif",
+		"reason-correction": "Correction",
+		"reason-damage": "Dommage",
+		"reason-recount": "Recomptage",
+		"reason-other": "Autre",
+		"reason-none": "Sans motif",
+		"select-product-location": "Choisissez d'abord un produit et un emplacement",
+		"adjusted": "Ajusté de {$before} à {$after}"
+	}
+}

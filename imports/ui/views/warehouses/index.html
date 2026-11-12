@@ -1,0 +1,48 @@
+<template name="warehouses_index">
+	<div class="sheet">
+		<div class="page-head">
+			<h1>{{ i18n 'app.nav.warehouses' }}</h1>
+			<div class="page-actions">
+				{{#if canCreate}}
+					<button class="warehouses-add">{{ i18n 'warehouses.add' }}</button>
+				{{/if}}
+			</div>
+		</div>
+		<table class="warehouses-table">
+		<thead>
+			<tr>
+				<th>{{ i18n 'warehouses.name' }}</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each warehouses}}
+				<tr>
+					<td><a href="{{ pathFor route='warehouses.single' _id=_id }}">{{ name }}</a></td>
+					<td>
+						<button class="button small warehouses-edit" data-id="{{ _id }}">{{ i18n 'warehouses.edit' }}</button>
+						<button class="button small bad warehouses-delete" data-id="{{ _id }}">{{ i18n 'warehouses.delete' }}</button>
+					</td>
+				</tr>
+			{{/each}}
+		</tbody>
+		</table>
+		{{#if editing}}
+			<div class="modal-overlay">
+				<form class="modal warehouses-modal">
+					<h2>{{#if warehouseId}}{{ i18n 'warehouses.edit' }}{{else}}{{ i18n 'warehouses.add' }}{{/if}}</h2>
+					<label>{{ i18n 'warehouses.name' }}
+						<input type="text" name="name" value="{{ warehouse.name }}">
+					</label>
+					<div class="modal-actions">
+						<button type="button" class="button lesser modal-cancel">{{ i18n 'app.cancel' }}</button>
+						<button type="submit">{{ i18n 'app.save' }}</button>
+					</div>
+					{{#if error}}
+						<p class="error">{{ error }}</p>
+					{{/if}}
+				</form>
+			</div>
+		{{/if}}
+	</div>
+</template>

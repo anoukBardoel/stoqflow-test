@@ -1,0 +1,54 @@
+<template name="warehouses_single">
+	<div class="sheet">
+		<div class="page-head">
+			<h1>{{ warehouse.name }}</h1>
+			<div class="page-actions">
+				{{#if canCreate}}
+					<button class="locations-add">{{ i18n 'locations.add' }}</button>
+				{{/if}}
+			</div>
+		</div>
+		<p><a class="button lesser small" href="{{ pathFor route='warehouses.index' }}">{{ i18n 'app.back' }}</a></p>
+		<table class="locations-table">
+		<thead>
+			<tr>
+				<th>{{ i18n 'locations.code' }}</th>
+				<th>{{ i18n 'locations.name' }}</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each locations}}
+				<tr>
+					<td>{{ code }}</td>
+					<td>{{ name }}</td>
+					<td>
+						<button class="button small locations-edit" data-id="{{ _id }}">{{ i18n 'locations.edit' }}</button>
+						<button class="button small bad locations-delete" data-id="{{ _id }}">{{ i18n 'locations.delete' }}</button>
+					</td>
+				</tr>
+			{{/each}}
+		</tbody>
+		</table>
+		{{#if editing}}
+			<div class="modal-overlay">
+				<form class="modal locations-modal">
+					<h2>{{#if locationId}}{{ i18n 'locations.edit' }}{{else}}{{ i18n 'locations.add' }}{{/if}}</h2>
+					<label>{{ i18n 'locations.code' }}
+						<input type="text" name="code" value="{{ location.code }}">
+					</label>
+					<label>{{ i18n 'locations.name' }}
+						<input type="text" name="name" value="{{ location.name }}">
+					</label>
+					<div class="modal-actions">
+						<button type="button" class="button lesser modal-cancel">{{ i18n 'app.cancel' }}</button>
+						<button type="submit">{{ i18n 'app.save' }}</button>
+					</div>
+					{{#if error}}
+						<p class="error">{{ error }}</p>
+					{{/if}}
+				</form>
+			</div>
+		{{/if}}
+	</div>
+</template>

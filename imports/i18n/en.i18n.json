@@ -12,7 +12,8 @@
 		"password": "Password",
 		"save": "Save",
 		"cancel": "Cancel",
-		"delete-confirm": "Are you sure?"
+		"delete-confirm": "Are you sure?",
+		"back": "Back"
 	},
 	"errors": {
 		"not-logged-in": "You need to log in first",

@@ -1,11 +1,11 @@
-import './stock_adjust.html';
+import './adjust.html';
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 import i18n from '/imports/lib/i18n';
-import { editingAdjustment } from './stock_index';
+import { editingAdjustment } from './index';
 import { Products } from '/imports/collections/products';
 import { Locations } from '/imports/collections/locations';
 

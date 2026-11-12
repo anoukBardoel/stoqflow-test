@@ -1,6 +1,7 @@
 import './app_layout.html';
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 import { layoutState } from './render';
 
@@ -14,9 +15,24 @@ function currentUserName() {
 	return user?.username || user?.emails?.[0]?.address || '';
 }
 
+/**
+ * helper that marks a nav entry active when the current route name starts with the prefix
+ * @param {string} prefix - the route name prefix to match against
+ * @returns {string} 'active' when the current route matches, otherwise an empty string
+ */
+function activeNav(prefix) {
+	//watchPathChange makes this helper rerun on every route change
+	FlowRouter.watchPathChange();
+
+	const routeName = FlowRouter.getRouteName() || '';
+
+	return routeName.startsWith(prefix) ? 'active' : '';
+}
+
 Template.app_layout.helpers({
 	userName: currentUserName,
-	main: () => layoutState.get('main')
+	main: () => layoutState.get('main'),
+	activeNav
 });
 
 Template.app_layout.events({

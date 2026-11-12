@@ -1,0 +1,52 @@
+<template name="stock_index">
+	<div class="sheet">
+		<div class="page-head">
+			<h1>{{ i18n 'app.nav.stock' }}</h1>
+			<div class="page-actions">
+				{{#if canAdjust}}
+					<button class="stock-adjust-open">{{ i18n 'stock.adjust' }}</button>
+				{{/if}}
+			</div>
+		</div>
+		<div class="toolbar">
+			<select class="stock-warehouse-picker">
+				<option value="">{{ i18n 'stock.pick-warehouse' }}</option>
+				{{#each warehouses}}
+					<option value="{{ _id }}" selected="{{ selected }}">{{ name }}</option>
+				{{/each}}
+			</select>
+		</div>
+		{{#if warehouseId}}
+			<table class="stock-table">
+				<thead>
+					<tr>
+						<th>{{ i18n 'stock.product' }}</th>
+						<th>{{ i18n 'stock.location' }}</th>
+						<th>{{ i18n 'stock.quantity' }}</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each rows}}
+						<tr>
+							<td>{{ productCode }} {{ productName }}</td>
+							<td>{{ locationCode }}</td>
+							<td>{{ quantity }}</td>
+							<td>
+								{{#if canAdjust}}
+									<button class="button small stock-adjust-row" data-stock-id="{{ _id }}">{{ i18n 'stock.adjust' }}</button>
+								{{/if}}
+							</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{#unless rows}}
+				<p class="empty">{{ i18n 'stock.empty' }}</p>
+			{{/unless}}
+		{{/if}}
+		{{#if editing}}
+			{{> stock_adjust}}
+		{{/if}}
+	</div>
+</template>

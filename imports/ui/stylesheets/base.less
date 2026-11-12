@@ -1,0 +1,279 @@
+//fonts have to be imported first in less, the fallback stack covers offline use
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700&display=swap');
+
+//shades
+@white: #FFF;
+@dirty_white: #F8F9FB;
+@light_slate: #CED4E0;
+@slate: #ADB6CA;
+@dark_slate: #7D8AA3;
+
+@app_bg: #3d434e;
+
+//colors
+@red: #D95A56;
+@green: #37C051;
+
+@ink: #2A3958;
+
+@accent: #0984D7;
+
+//css variable for theming, defaults to the stokpad blue
+:root {
+	--theme: @accent;
+}
+
+//fonts & weights
+@sans: 'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@monospace: 'IBM Plex Mono', 'Lucida Console', Monaco, monospace;
+
+@regular: 400;
+@medium: 500;
+@heavy: 700;
+
+::selection { background: var(--theme); color: @white; text-shadow: none; }
+
+html {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+* {
+	&,
+	&:after,
+	&:before {
+		box-sizing: inherit;
+	}
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-family: @sans;
+	font-size: 100%;
+	font-weight: @regular;
+	line-height: 1.5;
+	background: @dirty_white;
+	color: @ink;
+}
+
+a {
+	color: var(--theme);
+	text-decoration: none;
+
+	&:focus {
+		outline: dotted 1px var(--theme);
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&:visited {
+		color: @dark_slate;
+	}
+
+	&:active {
+		text-decoration: none;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	margin: 1em 0;
+	line-height: 1.125;
+}
+
+h1 { font-size: 1.75em; font-weight: @regular; }
+h2 { font-size: 1.5em; font-weight: @regular; }
+h3 { font-size: 1.25em; font-weight: @regular; }
+h4 { font-size: 1.125em; font-weight: @regular; }
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child { margin-top: 0; }
+
+label, .label {
+	display: block;
+	margin: 0 0 0.25em;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: @slate;
+	font-size: 0.8125em;
+	font-weight: @medium;
+}
+
+input, select, textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%;
+	padding: 0.375em 0.75em;
+	border: solid 2px @light_slate;
+	background: @white;
+	border-radius: 3px;
+	font-family: @sans;
+	font-weight: @regular;
+	font-size: 1em;
+	line-height: 1.5;
+	color: @ink;
+	transition: border-color .5s ease-out;
+
+	&:focus {
+		outline: 0;
+		border-color: var(--theme);
+	}
+
+	&:disabled, &[readonly] {
+		background-color: @dirty_white;
+
+		&:focus {
+			border-color: @light_slate;
+		}
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		color: @slate;
+	}
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+	color: @slate;
+	font-style: italic;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+	color: @slate;
+	font-style: italic;
+}
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding: 0.375em 2.25em 0.375em 0.75em;
+	display: inline-block;
+	background: @white url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNDZweCIgaGVpZ2h0PSIyOXB4IiB2aWV3Qm94PSIwIDAgNDYgMjkiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGcgIHN0cm9rZT0ibm9uZSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNNDQuOTU4NzYxMyw3LjY4NzQ3NTc5IEM0NS42NTYzMDY4LDYuOTg5OTMwMzEgNDUuNjU2MzA2OCw1Ljg0NTk1NTczIDQ0Ljk1ODc2MTMsNS4xNDg0MTAyNiBMNDAuMzI3MDU5NCwwLjU0NDYxMDEyOCBDMzkuNjI5NTEzOSwtMC4xNTI5MzUzNDcgMzguNTEzNDQxMiwtMC4xNTI5MzUzNDcgMzcuODE1ODk1NywwLjU0NDYxMDEyOCBMMjMuMDAwMDI5OCwxNS4zNjA0NzYgTDguMTg0MTYzOTMsMC41NDQ2MTAxMjggQzcuNDg2NjE4NDUsLTAuMTUyOTM1MzQ3IDYuMzcwNTQ1NjksLTAuMTUyOTM1MzQ3IDUuNjczMDAwMjIsMC41NDQ2MTAxMjggTDEuMDQxMjk4MjcsNS4xNDg0MTAyNiBDMC4zNDM3NTI3OTQsNS44NDU5NTU3MyAwLjM0Mzc1Mjc5NCw2Ljk4OTkzMDMxIDEuMDQxMjk4MjcsNy42ODc0NzU3OSBMMjEuNzQ0NDQ3OSwyOC4zNjI3MjM2IEMyMi40NDE5OTM0LDI5LjA2MDI2OTEgMjMuNTU4MDY2MiwyOS4wNjAyNjkxIDI0LjI1NTYxMTcsMjguMzYyNzIzNiBMNDQuOTU4NzYxMyw3LjY4NzQ3NTc5IFoiIGZpbGw9IiM3RDhBQTMiPjwvcGF0aD48L2c+PC9zdmc+) right 0.75em center no-repeat;
+	background-size: 0.8125em;
+
+	&:disabled {
+		color: @slate;
+		background-color: @dirty_white;
+	}
+}
+
+textarea { overflow: auto; resize: vertical; }
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	background: @white;
+	font-size: 0.9375em;
+
+	th, td {
+		padding: 0.5em 0.75em;
+		text-align: left;
+		border-bottom: solid 1px @light_slate;
+	}
+
+	thead th {
+		border-bottom: solid 2px @light_slate;
+		font-weight: @medium;
+		font-size: 0.8125em;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: @slate;
+	}
+
+	tbody tr:hover td {
+		background: @dirty_white;
+	}
+}
+
+button, .button {
+	display: inline-block;
+	padding: 0.375em 0.75em;
+	margin: 0 0.5em 0.5em 0;
+	background-color: var(--theme);
+	border: solid 2px var(--theme);
+	border-radius: 3px;
+	cursor: pointer;
+	transition: box-shadow .1s ease-out, background-color .2s ease-out, border-color .2s ease-out, color .2s ease-out;
+	font-family: @sans;
+	font-size: 1em;
+	font-weight: @medium;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	line-height: 1.5;
+	color: @white;
+
+	&:hover {
+		text-decoration: none;
+		filter: brightness(1.1);
+		box-shadow: 0 2px 7px 0 rgba(0, 0, 100, .2);
+	}
+
+	&:focus {
+		outline: 0;
+		text-decoration: underline;
+	}
+
+	&:active {
+		box-shadow: inset 0 1px 7px 0 rgba(0, 0, 100, .5);
+	}
+
+	&:disabled {
+		background: @dirty_white;
+		border-color: @dirty_white;
+		color: @light_slate;
+		cursor: not-allowed;
+		box-shadow: none;
+
+		&:hover {
+			filter: none;
+		}
+	}
+
+	&.lesser {
+		background: transparent;
+		color: @dark_slate;
+		border-color: @slate;
+
+		&:hover {
+			background: transparent;
+			border-color: var(--theme);
+			box-shadow: none;
+			color: var(--theme);
+		}
+
+		&:disabled {
+			background: transparent;
+			border-color: @dirty_white;
+		}
+	}
+
+	&.slate {
+		background-color: @dark_slate;
+		border-color: @dark_slate;
+	}
+
+	&.bad {
+		background-color: @red;
+		border-color: @red;
+	}
+
+	&.good {
+		background-color: @green;
+		border-color: @green;
+	}
+
+	&.small {
+		padding: 0.125em 0.5em;
+		margin: 0;
+		font-size: 0.8125em;
+	}
+}

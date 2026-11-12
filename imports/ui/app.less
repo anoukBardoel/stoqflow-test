@@ -1,103 +1,184 @@
-/*minimal app styles*/
-body {
-	font-family: sans-serif;
-	margin: 0;
-	color: #1c2430;
-	background: #f4f5f7;
+@import '{}/imports/ui/stylesheets/base.less';
+
+//left app menu
+#app-menu {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	width: 15em;
+	height: 100vh;
+	background: @app_bg;
 }
 
-.app-nav {
-	display: flex;
-	align-items: center;
-	gap: 16px;
-	padding: 8px 16px;
-	background: #1c2430;
-	color: #fff;
+.app-menu-logo {
+	display: block;
+	padding: 1em 1.5em;
+	font-weight: @medium;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: @white;
+	text-decoration: none;
+
+	&:hover,
+	&:visited {
+		color: @white;
+		text-decoration: none;
+	}
+}
+
+.app-menu-nav {
+	flex: 1;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 
 	a {
-		color: #cfd6e0;
+		display: block;
+		padding: 0.35em 1.5em;
+		font-size: 0.875em;
+		letter-spacing: 0.07em;
+		color: @dirty_white;
 		text-decoration: none;
+		border-left: 3px solid transparent;
 
-		&:hover {
-			color: #fff;
+		&:hover,
+		&:visited {
+			color: @white;
+			text-decoration: none;
+		}
+
+		&.active {
+			background: rgba(255, 255, 255, 0.06);
+			border-left-color: var(--theme);
+			color: @white;
 		}
 	}
 }
 
-.app-nav-logo {
-	font-weight: bold;
-	margin-right: 16px;
+.app-menu-user {
+	padding: 1em 1.5em;
+	border-top: solid 1px rgba(255, 255, 255, 0.1);
 }
 
-.app-nav-user {
-	margin-left: auto;
+.app-menu-user-name {
+	display: block;
+	margin: 0 0 0.5em;
+	font-size: 0.8125em;
+	color: @slate;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
+//ghost logout button that works on the dark menu background
+.app-nav-logout {
+	width: 100%;
+	margin: 0;
+	background: transparent;
+	border-color: @slate;
+	color: @slate;
+
+	&:hover {
+		background: transparent;
+		border-color: @dirty_white;
+		color: @dirty_white;
+	}
+}
+
+//main content area next to the menu
 .app-main {
-	padding: 16px;
+	margin-left: 15em;
+	padding: 2em;
+}
+
+//white card that holds a page
+.sheet {
+	max-width: 80em;
+	margin: 0 auto;
+	padding: 1.5em;
+	background: @white;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 100, 0.2);
+}
+
+.page-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1em;
+	margin: 0 0 1em;
+
+	h1 {
+		margin: 0;
+	}
+}
+
+.page-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+
+	button,
+	.button {
+		margin: 0;
+	}
 }
 
 .toolbar {
 	display: flex;
-	gap: 8px;
-	margin-bottom: 12px;
+	align-items: center;
+	gap: 0.5em;
+	margin: 0 0 1em;
 
 	input,
 	select {
-		padding: 6px 8px;
+		width: auto;
 	}
 }
 
 .products-search {
-	width: 320px;
+	width: 20em;
 }
 
-table {
-	width: 100%;
-	border-collapse: collapse;
-	background: #fff;
+.empty {
+	padding: 2em 0;
+	text-align: center;
+	color: @dark_slate;
+}
 
-	th,
-	td {
-		padding: 6px 10px;
-		border-bottom: 1px solid #e3e6ea;
-		text-align: left;
-	}
-
-	th {
-		font-size: 12px;
-		text-transform: uppercase;
-		color: #6b7684;
-	}
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(15, 20, 30, 0.4);
+	backdrop-filter: blur(4px);
 }
 
 .modal {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 100;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	width: min(380px, calc(100vw - 32px));
-	padding: 16px;
-	background: #fff;
-	border: 1px solid #d7dbe0;
-	border-radius: 4px;
-	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-
-	//dim the page behind the dialog
-	&::before {
-		content: '';
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		z-index: -1;
-		background: rgba(15, 20, 30, 0.35);
-	}
+	width: min(32em, calc(100vw - 32px));
+	max-height: calc(100vh - 32px);
+	overflow: auto;
+	padding: 1.5em;
+	background: @white;
+	border: 0;
+	border-radius: 5px;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 
 	label {
 		display: flex;
@@ -111,24 +192,75 @@ table {
 	display: flex;
 	justify-content: flex-end;
 	gap: 8px;
+
+	button {
+		margin: 0;
+	}
 }
 
 .error {
-	color: #b3261e;
+	color: @red;
 }
 
 .result {
-	color: #1a7f37;
+	color: @green;
+}
+
+//centered login screen
+.login-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
 }
 
 .login-form {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	max-width: 280px;
-	margin: 80px auto;
-	padding: 16px;
-	background: #fff;
-	border: 1px solid #d7dbe0;
-	border-radius: 4px;
+	width: min(24em, calc(100vw - 32px));
+	margin: 0;
+	padding: 1.5em;
+	background: @white;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 100, 0.2);
+
+	h1 {
+		margin: 0 0 0.5em;
+	}
+
+	button[type='submit'] {
+		width: 100%;
+		margin: 0;
+	}
+}
+
+//pragmatic small screen fallback, the sidebar becomes a static top bar
+@media (max-width: 768px) {
+	#app-menu {
+		position: static;
+		width: 100%;
+		height: auto;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.app-menu-nav {
+		flex: 1;
+
+		ul {
+			display: flex;
+		}
+	}
+
+	.app-menu-user {
+		padding: 0.5em 1em;
+		border-top: 0;
+	}
+
+	.app-main {
+		margin-left: 0;
+		padding: 1em;
+	}
 }

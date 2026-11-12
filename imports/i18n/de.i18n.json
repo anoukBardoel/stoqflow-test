@@ -12,7 +12,8 @@
 		"password": "Passwort",
 		"save": "Speichern",
 		"cancel": "Abbrechen",
-		"delete-confirm": "Sind Sie sicher?"
+		"delete-confirm": "Sind Sie sicher?",
+		"back": "Zurück"
 	},
 	"errors": {
 		"not-logged-in": "Bitte melden Sie sich zuerst an",

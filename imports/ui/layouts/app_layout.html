@@ -1,14 +1,19 @@
 <template name="app_layout">
-	<nav class="app-nav">
-		<span class="app-nav-logo">{{ i18n 'app.name' }}</span>
-		<a href="{{ pathFor route='products.index' }}">{{ i18n 'app.nav.products' }}</a>
-		<a href="{{ pathFor route='warehouses.index' }}">{{ i18n 'app.nav.warehouses' }}</a>
-		<a href="{{ pathFor route='stock.index' }}">{{ i18n 'app.nav.stock' }}</a>
-		<span class="app-nav-user">{{ userName }}</span>
-		<button class="app-nav-logout">{{ i18n 'app.logout' }}</button>
-	</nav>
+	<header id="app-menu">
+		<a href="{{ pathFor route='products.index' }}" class="app-menu-logo">{{ i18n 'app.name' }}</a>
+		<nav class="app-menu-nav">
+			<ul>
+				<li><a href="{{ pathFor route='products.index' }}" class="{{#if activeNav 'products'}}active{{/if}}">{{ i18n 'app.nav.products' }}</a></li>
+				<li><a href="{{ pathFor route='warehouses.index' }}" class="{{#if activeNav 'warehouses'}}active{{/if}}">{{ i18n 'app.nav.warehouses' }}</a></li>
+				<li><a href="{{ pathFor route='stock.index' }}" class="{{#if activeNav 'stock'}}active{{/if}}">{{ i18n 'app.nav.stock' }}</a></li>
+			</ul>
+		</nav>
+		<div class="app-menu-user">
+			<span class="app-menu-user-name">{{ userName }}</span>
+			<button class="app-nav-logout">{{ i18n 'app.logout' }}</button>
+		</div>
+	</header>
 	<main class="app-main">
 		{{> Template.dynamic template=main}}
 	</main>
 </template>
-

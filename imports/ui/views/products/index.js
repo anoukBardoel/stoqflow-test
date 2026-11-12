@@ -1,4 +1,4 @@
-import './products_index.html';
+import './index.html';
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
