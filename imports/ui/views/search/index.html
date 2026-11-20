@@ -1,0 +1,53 @@
+<template name="search_index">
+	<div class="sheet">
+		<div class="page-head">
+			<h1>{{ i18n 'app.nav.search' }}</h1>
+			<div class="page-actions"></div>
+		</div>
+		<div class="toolbar">
+			<input type="search" class="search-input" placeholder="{{ i18n 'products.search' }}" value="{{ searchQuery }}" list="search-product-list">
+			<datalist id="search-product-list">
+				{{#each products}}
+					<option value="{{ code }}">{{ name }}</option>
+				{{/each}}
+			</datalist>
+			<select class="search-warehouse-picker">
+				<option value="">{{ i18n 'search.all-warehouses' }}</option>
+				{{#each warehouses}}
+					<option value="{{ _id }}" selected="{{ selected }}">{{ name }}</option>
+				{{/each}}
+			</select>
+		</div>
+		{{#if searchQuery}}
+			{{#if products.length}}
+				<table class="search-table">
+					<thead>
+						<tr>
+							<th>{{ i18n 'products.code' }}</th>
+							<th>{{ i18n 'products.name' }}</th>
+							<th>{{ i18n 'deliveries.warehouse' }}</th>
+							<th>{{ i18n 'stock.location' }}</th>
+							<th>{{ i18n 'stock.quantity' }}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each rows}}
+							<tr>
+								<td>{{ code }}</td>
+								<td>{{ name }}</td>
+								<td>{{ warehouseName }}</td>
+								<td>{{ locationCode }} {{#if locationName}}{{ locationName }}{{/if}}</td>
+								<td>{{ quantity }}</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+				{{#unless rows.length}}
+					<p class="empty">{{ i18n 'stock.empty' }}</p>
+				{{/unless}}
+			{{else}}
+				<p class="empty">{{ i18n 'search.no-match' }}</p>
+			{{/if}}
+		{{/if}}
+	</div>
+</template>

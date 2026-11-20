@@ -25,3 +25,20 @@ Meteor.publish('locations.by-warehouse', async function locationsByWarehousePub(
 		sort: { code: 1 }
 	});
 });
+
+/**
+ * Publishes all locations of every warehouse
+ */
+Meteor.publish('locations.all', async function locationsAllPub() {
+	const { userId } = this;
+	if (!userId) return this.ready();
+
+	if (!await userHasCapabilities({ userId, capabilities: ['c_locations_read'] })) return this.ready();
+
+	return locationsCollection.find({
+		trash: { $exists: false }
+	}, {
+		fields: { warehouse_id: 1, code: 1, name: 1, created: 1 },
+		sort: { code: 1 }
+	});
+});

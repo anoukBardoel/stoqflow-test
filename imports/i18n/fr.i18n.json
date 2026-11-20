@@ -5,7 +5,8 @@
 			"products": "Produits",
 			"warehouses": "Entrepôts",
 			"stock": "Stock",
-			"deliveries": "Livraisons"
+			"deliveries": "Livraisons",
+			"search": "Rechercher un produit"
 		},
 		"login": "Connexion",
 		"logout": "Déconnexion",
@@ -89,5 +90,9 @@
 		"quantity": "Quantité",
 		"before": "Avant",
 		"after": "Après"
+	},
+	"search": {
+		"all-warehouses": "Tous les entrepôts",
+		"no-match": "Aucun produit correspondant"
 	}
 }

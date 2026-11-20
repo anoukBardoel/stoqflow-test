@@ -53,6 +53,13 @@ FlowRouter.route('/deliveries', {
 	}
 });
 
+FlowRouter.route('/search', {
+	name: 'search.index',
+	action() {
+		renderLayout('search_index');
+	}
+});
+
 FlowRouter.route('/login', {
 	name: 'login',
 	triggersEnter: [

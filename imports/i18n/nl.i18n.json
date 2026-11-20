@@ -5,7 +5,8 @@
 			"products": "Artikelen",
 			"warehouses": "Magazijnen",
 			"stock": "Voorraad",
-			"deliveries": "Leveringen"
+			"deliveries": "Leveringen",
+			"search": "Product zoeken"
 		},
 		"login": "Inloggen",
 		"logout": "Uitloggen",
@@ -89,5 +90,9 @@
 		"quantity": "Hoeveelheid",
 		"before": "Voor",
 		"after": "Na"
+	},
+	"search": {
+		"all-warehouses": "Alle magazijnen",
+		"no-match": "Geen passende artikelen"
 	}
 }

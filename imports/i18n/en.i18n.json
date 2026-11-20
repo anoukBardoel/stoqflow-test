@@ -5,7 +5,8 @@
 			"products": "Products",
 			"warehouses": "Warehouses",
 			"stock": "Stock",
-			"deliveries": "Deliveries"
+			"deliveries": "Deliveries",
+			"search": "Search product"
 		},
 		"login": "Log in",
 		"logout": "Log out",
@@ -89,5 +90,9 @@
 		"quantity": "Quantity",
 		"before": "Before",
 		"after": "After"
+	},
+	"search": {
+		"all-warehouses": "All warehouses",
+		"no-match": "No matching products"
 	}
 }
