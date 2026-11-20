@@ -20,7 +20,10 @@ export const capabilities = [
 
 	//Stock
 	'c_stock_read',
-	'c_stock_adjust'
+	'c_stock_adjust',
+
+	//Deliveries
+	'c_deliveries_process'
 ];
 
 //map roles to capability lists
@@ -38,14 +41,16 @@ export const ROLE_CAPABILITIES = {
 		'c_locations_read',
 		'c_locations_update',
 		'c_stock_read',
-		'c_stock_adjust'
+		'c_stock_adjust',
+		'c_deliveries_process'
 	],
 	operator: [
 		'c_products_read',
 		'c_warehouses_read',
 		'c_locations_read',
 		'c_stock_read',
-		'c_stock_adjust'
+		'c_stock_adjust',
+		'c_deliveries_process'
 	],
 	readonly: [
 		'c_products_read',

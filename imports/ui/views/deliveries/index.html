@@ -2,8 +2,72 @@
 	<div class="sheet">
 		<div class="page-head">
 			<h1>{{ i18n 'app.nav.deliveries' }}</h1>
-			<div class="page-actions"></div>
 		</div>
-		<p class="empty">{{ i18n 'deliveries.empty' }}</p>
+		{{#if canProcess}}
+			<form class="deliveries-form">
+				<div class="toolbar">
+					<label class="deliveries-field">{{ i18n 'deliveries.warehouse' }}
+						<select class="deliveries-warehouse-picker">
+							<option value="">{{ i18n 'stock.pick-warehouse' }}</option>
+							{{#each warehouses}}
+								<option value="{{ _id }}" selected="{{ selected }}">{{ name }}</option>
+							{{/each}}
+						</select>
+					</label>
+				</div>
+				<datalist id="deliveries-product-list">
+					{{#each productOptions}}
+						<option value="{{ code }}"></option>
+					{{/each}}
+				</datalist>
+				<datalist id="deliveries-location-list">
+					{{#each locations}}
+						<option value="{{ code }}"></option>
+					{{/each}}
+				</datalist>
+				<table class="deliveries-table">
+					<thead>
+						<tr>
+							<th>{{ i18n 'products.code' }}</th>
+							<th>{{ i18n 'products.name' }}</th>
+							<th>{{ i18n 'stock.location' }}</th>
+							<th>{{ i18n 'stock.quantity' }}</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each lines}}
+							<tr>
+								<td>
+									<input type="text" class="deliveries-line-code" data-key="{{ key }}" list="deliveries-product-list" value="{{ lineCode }}">
+								</td>
+								<td class="deliveries-line-name">{{ productName }}</td>
+								<td>
+									<input type="text" class="deliveries-line-location" data-key="{{ key }}" list="deliveries-location-list" value="{{ lineLocationCode }}">
+								</td>
+								<td>
+									<input type="number" class="deliveries-line-quantity" data-key="{{ key }}" min="1" step="1" value="{{ quantity }}">
+								</td>
+								<td>
+									<button type="button" class="button small bad deliveries-line-remove" data-key="{{ key }}">{{ i18n 'deliveries.remove' }}</button>
+								</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+				<div class="deliveries-add-row">
+					<button type="button" class="deliveries-add-line">{{ i18n 'deliveries.add-line' }}</button>
+				</div>
+				<div class="page-actions deliveries-submit-row">
+					<button type="submit" class="deliveries-process">{{ i18n 'deliveries.process' }}</button>
+				</div>
+				{{#if result}}
+					<p class="result">{{ resultText }}</p>
+				{{/if}}
+				{{#if error}}
+					<p class="error">{{ error }}</p>
+				{{/if}}
+			</form>
+		{{/if}}
 	</div>
 </template>

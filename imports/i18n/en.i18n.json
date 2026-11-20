@@ -77,7 +77,14 @@
 		"adjusted": "Adjusted from {$before} to {$after}"
 	},
 	"deliveries": {
-		"plural": "deliveries",
-		"empty": "No deliveries yet"
+		"add-line": "Add product",
+		"remove": "Remove",
+		"process": "Process delivery",
+		"warehouse-required": "Pick a warehouse first",
+		"line-incomplete": "Every line needs a product code and a location code",
+		"duplicate-line": "The same product and location can not appear twice",
+		"no-lines": "Add at least one product first",
+		"lines-item": "{$quantity}x {$code} to {$location}",
+		"processed": "Processed: {$lines}"
 	}
 }

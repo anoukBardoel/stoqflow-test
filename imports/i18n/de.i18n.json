@@ -77,7 +77,14 @@
 		"adjusted": "Korrigiert von {$before} auf {$after}"
 	},
 	"deliveries": {
-		"plural": "Lieferungen",
-		"empty": "Noch keine Lieferungen"
+		"add-line": "Artikel hinzufügen",
+		"remove": "Entfernen",
+		"process": "Lieferung verbuchen",
+		"warehouse-required": "Bitte zuerst ein Lager wählen",
+		"line-incomplete": "Jede Zeile benötigt einen Artikelcode und einen Lagerortcode",
+		"duplicate-line": "Derselbe Artikel und Lagerort darf nicht doppelt vorkommen",
+		"no-lines": "Bitte zuerst mindestens einen Artikel hinzufügen",
+		"lines-item": "{$quantity}x {$code} zu {$location}",
+		"processed": "Verarbeitet: {$lines}"
 	}
 }

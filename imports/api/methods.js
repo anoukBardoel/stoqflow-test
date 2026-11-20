@@ -3,3 +3,4 @@ import '/imports/api/products/methods';
 import '/imports/api/warehouses/methods';
 import '/imports/api/locations/methods';
 import '/imports/api/stock/methods';
+import '/imports/api/deliveries/methods';

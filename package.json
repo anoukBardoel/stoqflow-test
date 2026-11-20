@@ -7,8 +7,8 @@
 		"start": "meteor run --exclude-archs=web.cordova,web.browser.legacy",
 		"dev": "meteor run --exclude-archs=web.cordova,web.browser.legacy",
 		"lint": "eslint .",
-		"test": "TEST_CLIENT=0 meteor test --once --driver-package=meteortesting:mocha --exclude-archs=web.cordova,web.browser.legacy",
-		"seed": "SEED=true meteor run --exclude-archs=web.cordova,web.browser.legacy"
+		"test": "cross-env TEST_CLIENT=0 meteor test --once --driver-package=meteortesting:mocha --exclude-archs=web.cordova,web.browser.legacy",
+		"seed": "cross-env SEED=true meteor run --exclude-archs=web.cordova,web.browser.legacy"
 	},
 	"dependencies": {
 		"@babel/runtime": "^7.23.5",
@@ -20,6 +20,7 @@
 	"devDependencies": {
 		"chai": "^4.5.0",
 		"chai-as-promised": "^7.1.2",
+		"cross-env": "^10.1.0",
 		"eslint": "^8.57.0",
 		"eslint-config-airbnb-base": "^15.0.0",
 		"eslint-import-resolver-meteor": "^0.4.0",
