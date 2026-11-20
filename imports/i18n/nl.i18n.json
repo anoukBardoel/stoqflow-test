@@ -80,11 +80,14 @@
 		"add-line": "Artikel toevoegen",
 		"remove": "Verwijderen",
 		"process": "Levering boeken",
+		"new": "Nieuwe levering",
 		"warehouse-required": "Kies eerst een magazijn",
 		"line-incomplete": "Elke regel heeft een artikelcode en een locatiecode nodig",
 		"duplicate-line": "Hetzelfde artikel en dezelfde locatie mag niet twee keer voorkomen",
 		"no-lines": "Voeg eerst minstens één artikel toe",
-		"lines-item": "{$quantity}x {$code} naar {$location}",
-		"processed": "Verwerkt: {$lines}"
+		"report": "Geleverd",
+		"quantity": "Hoeveelheid",
+		"before": "Voor",
+		"after": "Na"
 	}
 }

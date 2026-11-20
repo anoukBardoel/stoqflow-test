@@ -80,11 +80,14 @@
 		"add-line": "Ajouter un produit",
 		"remove": "Retirer",
 		"process": "Valider la livraison",
+		"new": "Nouvelle livraison",
 		"warehouse-required": "Choisissez d'abord un entrepôt",
 		"line-incomplete": "Chaque ligne a besoin d'un code produit et d'un code emplacement",
 		"duplicate-line": "Le même produit et emplacement ne peuvent pas apparaître deux fois",
 		"no-lines": "Ajoutez d'abord au moins un produit",
-		"lines-item": "{$quantity}x {$code} vers {$location}",
-		"processed": "Traité : {$lines}"
+		"report": "Livré",
+		"quantity": "Quantité",
+		"before": "Avant",
+		"after": "Après"
 	}
 }

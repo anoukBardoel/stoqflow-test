@@ -101,9 +101,20 @@ describe('deliveries', () => {
 	it(
 		'should add the quantities to the product stock and create history entries',
 		async () => {
-			await deliveriesProcess._execute({ userId: adminUserId }, {
+			const processed = await deliveriesProcess._execute({ userId: adminUserId }, {
 				lines: [{ productId, locationId, quantity: 5 }, { productId: otherProductId, locationId, quantity: 3 }]
 			});
+
+			assert.lengthOf(processed, 2);
+
+			//every processed line reports its stock before and after
+			const first = processed.find(line => line.productId === productId),
+				second = processed.find(line => line.productId === otherProductId);
+
+			assert.equal(first.quantityBefore, 2);
+			assert.equal(first.quantityAfter, 7);
+			assert.equal(second.quantityBefore, 0);
+			assert.equal(second.quantityAfter, 3);
 
 			const product = await Products.data.findOneAsync(productId),
 				other = await Products.data.findOneAsync(otherProductId);

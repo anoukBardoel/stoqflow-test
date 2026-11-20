@@ -13,7 +13,9 @@ _Your approach and the order of work you intend to follow._
 ## Open questions
 
 Zijn de deliveries allemaal producten die al in het systeem zitten of zijn kan het zijn dat er nieuwe producten worden geleverd?
-Er is ook iets mis met lint file (alles wordt roods)
+
+kan een warehouse veranderen midden in een delivery?
+Mag het overzicht gewoon onderaan de pagina of wordt er een nieuwe pagina verwacht?
 
 ## AI usage
 

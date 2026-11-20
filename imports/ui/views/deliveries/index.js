@@ -15,7 +15,7 @@ let lineKey = 0;
 const lines = new ReactiveVar([]),
 	warehouseId = new ReactiveVar(null),
 	formError = new ReactiveVar(null),
-	formResult = new ReactiveVar(null);
+	reportLines = new ReactiveVar(null);
 
 /**
  * looks up a product by its exact code
@@ -66,7 +66,24 @@ Template.deliveries_index.onCreated(function deliveriesIndexCreated() {
 Template.deliveries_index.helpers({
 	canProcess: () => currentUserHasCapabilities(['c_deliveries_process']),
 	error: () => formError.get(),
-	result: () => formResult.get(),
+	report: () => !!reportLines.get(),
+	warehousePicked: () => !!warehouseId.get(),
+	reportRows() {
+		//join the processed lines with their product and location for the report
+		return reportLines.get().map(line => {
+			const product = Products.data.findOne(line.productId) || {},
+				location = Locations.data.findOne(line.locationId) || {};
+
+			return {
+				code: product.code || '?',
+				name: product.name || '?',
+				locationCode: location.code || '?',
+				quantity: line.quantity,
+				quantityBefore: line.quantityBefore,
+				quantityAfter: line.quantityAfter
+			};
+		});
+	},
 	warehouses() {
 		return Warehouses.data.find({ trash: { $exists: false } }, { sort: { name: 1 } }).fetch().map(w => ({
 			_id: w._id,
@@ -104,35 +121,27 @@ Template.deliveries_index.helpers({
 	},
 	lines() {
 		return lines.get();
-	},
-	/**
-	 * helper that summarizes the processed lines as text
-	 * @returns {string} 'Processed: 2x SKU-001 to L-01, 3x SKU-002 to L-02'
-	 */
-	resultText() {
-		const summary = formResult.get().map(line => {
-			const product = Products.data.findOne(line.productId) || {},
-				location = Locations.data.findOne(line.locationId) || {};
-
-			return i18n.__('deliveries.lines-item', {
-				quantity: line.quantity,
-				code: product.code || '?',
-				location: location.code || '?'
-			});
-		}).join(', ');
-
-		return i18n.__('deliveries.processed', { lines: summary });
 	}
 });
 
 Template.deliveries_index.events({
 	'change .deliveries-warehouse-picker'(e) {
 		warehouseId.set(e.target.value || null);
+
+		//a fresh warehouse pick clears the old error message
+		formError.set(null);
 	},
 	'click .deliveries-add-line'() {
+		//a warehouse is needed before adding lines, the location
+		//suggestions only exist for the picked warehouse
+		if (!warehouseId.get()) return formError.set(i18n.__('deliveries.warehouse-required'));
+
 		const current = lines.get();
 
 		current.push({ key: ++lineKey, code: '', productId: null, locationCode: '', locationId: null, quantity: 1 });
+
+		//starting a new delivery hides the report of the previous one
+		reportLines.set(null);
 
 		lines.set(current);
 	},
@@ -175,6 +184,13 @@ Template.deliveries_index.events({
 	'click .deliveries-line-remove'(e) {
 		lines.set(lines.get().filter(x => x.key !== Number(e.currentTarget.dataset.key)));
 	},
+	'click .deliveries-new'() {
+		//reset everything for the next delivery, the picker unlocks
+		warehouseId.set(null);
+		reportLines.set(null);
+		formError.set(null);
+		lines.set([]);
+	},
 	async 'submit .deliveries-form'(e) {
 		e.preventDefault();
 
@@ -183,7 +199,7 @@ Template.deliveries_index.events({
 			seen = new Set();
 
 		formError.set(null);
-		formResult.set(null);
+		reportLines.set(null);
 
 		//validate the form before calling the server
 		if (!warehouseId.get()) return formError.set(i18n.__('deliveries.warehouse-required'));
@@ -206,7 +222,7 @@ Template.deliveries_index.events({
 		try {
 			const processed = await Meteor.callAsync('v1.deliveries.process', { lines: validLines });
 
-			formResult.set(processed);
+			reportLines.set(processed);
 			lines.set([]);
 		} catch (err) {
 			formError.set(i18n.__(err.reason) || err.reason);
