@@ -4,20 +4,28 @@ Use this file to capture your working notes during the test. Commit it as you go
 
 ## Task understanding
 
-*Handoff meeting notes*
+_Handoff meeting notes_
 
 ## Plan
 
-*Your approach and the order of work you intend to follow.*
+_Your approach and the order of work you intend to follow._
 
 ## Open questions
 
-*Questions you might have along the way*
+Zijn de deliveries allemaal producten die al in het systeem zitten of zijn kan het zijn dat er nieuwe producten worden geleverd?
+Er is ook iets mis met lint file (alles wordt roods)
 
 ## AI usage
 
-*Which models you used, for what, and why*
+Mogelijke modellen:
+
+- deepseek V4.1 flash: $0.040 in $0.30 out
+- tencent hy4: $0.035 in $0.14 out
+- GLM 5.3 flash: $0.039 in $0.0784 out
+
+keuze voor hele kleine opdrachten zal ik waarschijnlijk voor de GLM 5.3 flash gaan.
+voor wat grotere werken zal ik waarschijnlijk de tencent hy4 gaan gebruiken
 
 ## Environment
 
-*Setup notes, anything unusual about your environment.*
+_Setup notes, anything unusual about your environment._

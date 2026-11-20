@@ -4,7 +4,8 @@
 		"nav": {
 			"products": "Artikelen",
 			"warehouses": "Magazijnen",
-			"stock": "Voorraad"
+			"stock": "Voorraad",
+			"deliveries": "Leveringen"
 		},
 		"login": "Inloggen",
 		"logout": "Uitloggen",
@@ -74,5 +75,9 @@
 		"reason-none": "Zonder reden",
 		"select-product-location": "Kies eerst een artikel en een locatie",
 		"adjusted": "Gecorrigeerd van {$before} naar {$after}"
+	},
+	"deliveries": {
+		"plural": "leveringen",
+		"empty": "Nog geen leveringen"
 	}
 }

@@ -8,3 +8,8 @@ StokPad is our lightweight warehouse management system. Day to day, goods also a
 - The product and location fields offer suggestions
 - After booking in, an on-screen report shows each delivered product, where it went, and the stock before/after
 - One small extra feature of your own choosing that makes the delivery UI genuinely more useful. Keep it small.
+
+-in leveringsview unieke combinatiecombo productnaam & locatie
+-levering moet niet bijhgehouden worden
+
+!commit hygiëne, AI aansturen, conventies respecteren, goed notities, welke LLM,

@@ -46,6 +46,13 @@ FlowRouter.route('/stock/:warehouseId', {
 	}
 });
 
+FlowRouter.route('/deliveries', {
+	name: 'deliveries.index',
+	action() {
+		renderLayout('deliveries_index');
+	}
+});
+
 FlowRouter.route('/login', {
 	name: 'login',
 	triggersEnter: [

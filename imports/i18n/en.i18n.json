@@ -4,7 +4,8 @@
 		"nav": {
 			"products": "Products",
 			"warehouses": "Warehouses",
-			"stock": "Stock"
+			"stock": "Stock",
+			"deliveries": "Deliveries"
 		},
 		"login": "Log in",
 		"logout": "Log out",
@@ -74,5 +75,9 @@
 		"reason-none": "No reason",
 		"select-product-location": "Pick a product and a location first",
 		"adjusted": "Adjusted from {$before} to {$after}"
+	},
+	"deliveries": {
+		"plural": "deliveries",
+		"empty": "No deliveries yet"
 	}
 }

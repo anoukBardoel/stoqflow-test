@@ -4,7 +4,8 @@
 		"nav": {
 			"products": "Artikel",
 			"warehouses": "Lager",
-			"stock": "Bestand"
+			"stock": "Bestand",
+			"deliveries": "Lieferungen"
 		},
 		"login": "Anmelden",
 		"logout": "Abmelden",
@@ -74,5 +75,9 @@
 		"reason-none": "Ohne Grund",
 		"select-product-location": "Bitte zuerst Artikel und Lagerort wählen",
 		"adjusted": "Korrigiert von {$before} auf {$after}"
+	},
+	"deliveries": {
+		"plural": "Lieferungen",
+		"empty": "Noch keine Lieferungen"
 	}
 }

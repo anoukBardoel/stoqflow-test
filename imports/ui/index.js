@@ -12,6 +12,7 @@ import '/imports/ui/views/warehouses/index';
 import '/imports/ui/views/warehouses/single';
 import '/imports/ui/views/stock/index';
 import '/imports/ui/views/stock/adjust';
+import '/imports/ui/views/deliveries/index';
 import '/imports/ui/app.less';
 
 //universe:i18n only registers a __ helper, expose it as i18n as well
